@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 Months with My Cutie Patootie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --space-cadet: #102B53;
+      --ucla-blue: #50698D;
+      --pink-lavender: #CEB5D4;
+      --cyan-azure: #4E7AB1;
+      --air-superiority-blue: #7D9FC0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--space-cadet);
+      color: var(--pink-lavender);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--cyan-azure);
+      color: white;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--ucla-blue);
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      background: var(--ucla-blue);
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: var(--air-superiority-blue);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    button {
+      background-color: var(--air-superiority-blue);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .confession-box, .wheel-result {
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--pink-lavender);
+    }
+
+    .audio-control {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--pink-lavender);
+      color: var(--space-cadet);
+      border: none;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .heart-game {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .heart {
+      width: 40px;
+      height: 40px;
+      background: pink;
+      clip-path: path('M24 4C24 4 24 0 20 0C17 0 15 2 15 4C15 2 13 0 10 0C6 0 6 4 6 4C6 10 12 12 12 20C12 12 18 10 18 4Z');
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .would-you-option {
+      display: block;
+      background: var(--cyan-azure);
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .would-you-option:hover {
+      background: var(--air-superiority-blue);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.8rem;
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+    .would-you-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.would-you-btn {
+  background: var(--cyan-azure);
+  color: white;
+  padding: 0.75rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.would-you-btn:hover {
+  background: var(--air-superiority-blue);
+}
+
+.or-text {
+  color: var(--pink-lavender);
+  font-weight: bold;
+}
+.would-you-btn.selected {
+  background-color: var(--pink-lavender);
+  color: var(--space-cadet);
+  transform: scale(1.05);
+}
+
+  </style>
+
+
+</head>
+<body>
+
+<header>3 Months with My Cutie Patootie 💘</header>
+
+<nav>
+  <a href="#timeline">Timeline</a>
+  <a href="#confessions">Confessions</a>
+  <a href="#wouldyou">Would You Rather</a>
+  <a href="#wheel">Wheel of Love</a>
+  <a href="#surprise">Surprise</a>
+  <a href="#heartgame">Heart Pop</a>
+</nav>
+
+<button class="audio-control" onclick="toggleMusic()">🔊 click me</button>
+<audio id="bgMusic" loop autoplay>
+  <source src="janamjanam.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <section id="timeline">
+    <h2>📅 Our Timeline</h2>
+    <ul>
+      <li>💬 jaan remember the first time You’ve texted me? lol i still think of those ducks.</li>
+      <li>🎶 the first call? oh my god uhabjheb like we were having so much fun and laughing, its one of the best decisions ive made like literally!!!</li>
+      <li>❤️ jaan do you remeber the first time you said "i love you"? my heart still races everytime you say that you love me, my heart gets so weak for you jaan like so weak.</li>
+      <li>🫂 I love you jaan, so much so much that words cant describe, my heart gets so weak for you jaan. you healed something you never broke love, like literally with you i feel like a baby like such a lil baby i forget that im older. I will workhard for both of us jaan like literally i wanna make this happen no matter what, i want this to workout. </li>
+      <li>🌍 Jaan run to me when the workd gets harsh on you jaan, i will always be here with my arms wide open for you jaan. i will hold you tight and make you feel the warmth and make you feel loved come to me jaan i will atke care of you like a baby.</li>
+    </ul>
+  </section>
+
+  <section id="confessions">
+    <h2>💌 Random Love Confession</h2>
+    <button onclick="generateConfession()">Tell Me Something Cute</button>
+    <p class="confession-box" id="confession"></p>
+  </section>
+
+ <section id="wouldyou">
+  <h2>🤔 Would You Rather</h2>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">💖 Cuddle forever</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">😘 Kiss every 5 mins?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">🌶️ Eat spicy momos together</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">🔥 Spicy YOU</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">🎧 Fall asleep on call</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">🎮 Play games all night?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">🐸want me to turn into a frog</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">🪱want me to turn into a worm?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">🦆Would you rather fight 100 duck-sized horses</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">🐎1 horse-sized duck?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">💕Would you rather have a quickie every day </button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">😽one long intense session once a week?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">Would you rather time travel to when we first met</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn"> jump to our wedding day?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">Would you rather be rich without me </button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">poor but with me forever?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">Would you rather have me as your clingy obsessed stalker </button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">your wild neighbor who spies on you?</button>
+  </div>
+
+  <div class="would-you-row">
+    <button class="would-you-btn">Would you rather forget every moment with me but keep the feelings </button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn">remember every moment but feel nothing?</button>
+  </div>
+
+   <div class="would-you-row">
+    <button class="would-you-btn">Would you rather protect me in a zombie apocalypse</button>
+    <span class="or-text">or</span>
+    <button class="would-you-btn"> sacrifice me to survive?</button>
+  </div>
+</section>
+
+
+  <section id="wheel">
+    <h2>🎡 Spin the Wheel of Love</h2>
+    <button onclick="spinWheel()">Spin</button>
+    <p class="wheel-result" id="wheelResult"></p>
+  </section>
+
+  <section id="surprise">
+    <h2>🎁 A Lil Surprise for My Jaan</h2>
+    <p>
+      JAAAAAAANNNNNNNNN oh my god my lil cutie patootie ahhhhhh im so happy jaan, how i love you my baby!!!! jaan you made the past 3 months so beautiful jaan like so beautiful. Even when times get hard and we have arguments and misunderstandings i love how we make up by the end of the night and sleep by saying our goodnights and laughter, i love how we communicate jaan like i love how we deal with things and talk about our feelings and what we have felt and all i just love that and the fact that you say sorry without any ego is what makes me fall for you more and more jaan like i can never find someone like you meh i dont even want anyone else but you love like literally i wanna hold your hand and grow old with you (apart from the part where you dont wanna grow old and wanna stay like this and watch me become a granny and call me "granny jaan").I love loving you jaan like literally i never thought love would be this sweet jaan. 
+    </p>
+  </section>
+
+  <section id="heartgame">
+    <h2>💓 Pop All the Hearts to Unlock</h2>
+    <div class="heart-game" id="hearts"></div>
+    <audio id="voiceNote">
+      <source src="vn.opus" type="audio/mpeg">
+    </audio>
+    <p id="finalMsg" class="hidden">You did it! Now listen carefully na~ 🎧</p>
+  </section>
+</div>
+
+<script>
+  const confessions = [
+    "I look at your pictures and videos late at night as i listen to music and get emotional.",
+    "I'd do anything to protect you even if its meant to loose myself.",
+    "When you say 'Jaan' my heart bursts out of love.",
+    "I day-dream about our wedding 24/7❤️",
+    "I listen to your voicenotes endlessly and feel closer to you.",
+    "3 months in and I’m still simping like day 1 💘",
+    "you make the world feel less cruel jaan."
+  ];
+
+  function generateConfession() {
+    const confession = confessions[Math.floor(Math.random() * confessions.length)];
+    document.getElementById("confession").innerText = confession;
+  }
+
+  const wheelOutcomes = [
+    "I LOVE YOU JAAN!!!",
+    "📸 Send me a selfie asap!!!",
+    "📝 Write me a letter!!!",
+    "📱 send me a voice note with kisses!!",
+    "🔞 send me a spicy pic hehehe",
+    "🫂 Send me a video of you virtually cuddling me heheh!!!"
+  ];
+
+  function spinWheel() {
+    const outcome = wheelOutcomes[Math.floor(Math.random() * wheelOutcomes.length)];
+    document.getElementById("wheelResult").innerText = outcome;
+  }
+
+  function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    music.paused ? music.play() : music.pause();
+  }
+
+  const heartGame = document.getElementById("hearts");
+  const totalHearts = 10;
+  let popped = 0;
+
+  for (let i = 0; i < totalHearts; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.onclick = () => {
+      heart.remove();
+      popped++;
+      if (popped === totalHearts) {
+        document.getElementById("finalMsg").classList.remove("hidden");
+        document.getElementById("voiceNote").play();
+      }
+    }
+    heartGame.appendChild(heart);
+  }
+ document.querySelectorAll('.would-you-row').forEach(row => {
+  const buttons = row.querySelectorAll('.would-you-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      // 🚨 ADD THIS
+      const webhookURL = "https://script.google.com/macros/s/AKfycbyZUU0UVC4mV_YGQazKl5oMpqkn2yiSXhsg-SCX3AbaeH0hCAStX3rSSnUOq_m5o2q4gw/exec";
+
+      const questionText = row.innerText.trim();
+      const selected = btn.innerText.trim();
+
+      fetch(webhookURL, {
+        method: 'POST',
+        mode: 'no-cors', // so it doesn't scream at you about CORS
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          question: questionText,
+          selected: selected
+        })
+      });
+    });
+  });
+});
+
+
+</script>
+
+</body>
+</html>
